@@ -64,7 +64,6 @@
             toolStripButton2.Name = "toolStripButton2";
             toolStripButton2.Size = new Size(146, 22);
             toolStripButton2.Text = "Закрыть без сохранения";
-            toolStripButton2.Click += toolStripButton2_Click;
             // 
             // pictureBox1
             // 

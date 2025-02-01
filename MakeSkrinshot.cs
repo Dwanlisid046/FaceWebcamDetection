@@ -43,7 +43,6 @@ namespace Webcam
         {
             try
             {
-          
                 pictureBox1.Image.Save(fileName, ImageFormat.Jpeg);
                 if (File.Exists(fileName))
                 {
@@ -58,11 +57,6 @@ namespace Webcam
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
