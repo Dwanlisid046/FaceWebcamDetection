@@ -27,8 +27,18 @@ namespace Webcam
                 foreach (var face in faces)
                 {
                     image.Draw(face, new Bgr(Color.Red), 2);
+        
                     CvInvoke.PutText(image, "Face", new Point(face.X, face.Y - 10),
                         Emgu.CV.CvEnum.FontFace.HersheyComplex, 1, new MCvScalar(0, 255, 0), 2, Emgu.CV.CvEnum.LineType.AntiAlias);
+
+                    lstDetectedFace.Invoke((Action)(() =>
+                    {
+                        imgLstDetect.Images.Add(image.ToBitmap());
+                        ListViewItem item = new ListViewItem("Face Detected");
+                        item.ImageIndex = imgLstDetect.Images.Count - 1;
+                        lstDetectedFace.Items.Add(item);
+                    }));
+
                 }
             }
             return image;
@@ -83,7 +93,12 @@ namespace Webcam
                 Mat frame = new Mat();
                 videoCapture.Retrieve(frame);
                 var img = frame.ToImage<Bgr, byte>().Flip(Emgu.CV.CvEnum.FlipType.Horizontal);
-                videoDisplay.Image = DetectFaces(img).ToBitmap();
+
+                videoDisplay.Invoke((Action)(() =>
+                {
+                    videoDisplay.Image = DetectFaces(img).ToBitmap();
+                }));
+
             }
             catch (Exception ex)
             {
@@ -144,5 +159,6 @@ namespace Webcam
         {
             Application.Exit();
         }
+
     }
 }

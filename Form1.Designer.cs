@@ -44,9 +44,16 @@
             btnCaptureScreenshot = new ToolStripButton();
             toolStripSeparator3 = new ToolStripSeparator();
             videoDisplay = new PictureBox();
+            splitContainer1 = new SplitContainer();
+            lstDetectedFace = new ListView();
+            imgLstDetect = new ImageList(components);
             menuStrip1.SuspendLayout();
             toolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)videoDisplay).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
+            splitContainer1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -150,19 +157,52 @@
             // videoDisplay
             // 
             videoDisplay.Dock = DockStyle.Fill;
-            videoDisplay.Location = new Point(0, 49);
+            videoDisplay.Location = new Point(0, 0);
             videoDisplay.Name = "videoDisplay";
-            videoDisplay.Size = new Size(999, 515);
+            videoDisplay.Size = new Size(640, 515);
             videoDisplay.SizeMode = PictureBoxSizeMode.Zoom;
             videoDisplay.TabIndex = 3;
             videoDisplay.TabStop = false;
+            // 
+            // splitContainer1
+            // 
+            splitContainer1.Dock = DockStyle.Fill;
+            splitContainer1.Location = new Point(0, 49);
+            splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            splitContainer1.Panel1.Controls.Add(videoDisplay);
+            // 
+            // splitContainer1.Panel2
+            // 
+            splitContainer1.Panel2.Controls.Add(lstDetectedFace);
+            splitContainer1.Size = new Size(999, 515);
+            splitContainer1.SplitterDistance = 640;
+            splitContainer1.TabIndex = 4;
+            // 
+            // lstDetectedFace
+            // 
+            lstDetectedFace.Dock = DockStyle.Fill;
+            lstDetectedFace.LargeImageList = imgLstDetect;
+            lstDetectedFace.Location = new Point(0, 0);
+            lstDetectedFace.Name = "lstDetectedFace";
+            lstDetectedFace.Size = new Size(355, 515);
+            lstDetectedFace.TabIndex = 0;
+            lstDetectedFace.UseCompatibleStateImageBehavior = false;
+            // 
+            // imgLstDetect
+            // 
+            imgLstDetect.ColorDepth = ColorDepth.Depth32Bit;
+            imgLstDetect.ImageSize = new Size(50, 50);
+            imgLstDetect.TransparentColor = Color.Transparent;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(999, 564);
-            Controls.Add(videoDisplay);
+            Controls.Add(splitContainer1);
             Controls.Add(toolBar);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -174,6 +214,10 @@
             toolBar.ResumeLayout(false);
             toolBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)videoDisplay).EndInit();
+            splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -195,5 +239,8 @@
         private ToolStripButton btnCaptureScreenshot;
         private ToolStripSeparator toolStripSeparator3;
         private PictureBox videoDisplay;
+        private SplitContainer splitContainer1;
+        private ImageList imgLstDetect;
+        private ListView lstDetectedFace;
     }
 }
