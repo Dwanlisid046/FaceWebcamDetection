@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             menuStrip1 = new MenuStrip();
             файлToolStripMenuItem = new ToolStripMenuItem();
             выходToolStripMenuItem = new ToolStripMenuItem();
@@ -43,10 +44,13 @@
             toolStripSeparator2 = new ToolStripSeparator();
             btnCaptureScreenshot = new ToolStripButton();
             toolStripSeparator3 = new ToolStripSeparator();
+            toolStripSeparator4 = new ToolStripSeparator();
+            btnSave = new ToolStripButton();
             videoDisplay = new PictureBox();
             splitContainer1 = new SplitContainer();
             lstDetectedFace = new ListView();
             imgLstDetect = new ImageList(components);
+            saveFileDialog1 = new SaveFileDialog();
             menuStrip1.SuspendLayout();
             toolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)videoDisplay).BeginInit();
@@ -85,7 +89,7 @@
             // 
             // toolBar
             // 
-            toolBar.Items.AddRange(new ToolStripItem[] { lblCamera, cameraSelector, toolStripSeparator1, btnStartCamera, btnPauseCamera, btnStopCamera, toolStripSeparator2, btnCaptureScreenshot, toolStripSeparator3 });
+            toolBar.Items.AddRange(new ToolStripItem[] { lblCamera, cameraSelector, toolStripSeparator1, btnStartCamera, btnPauseCamera, btnStopCamera, toolStripSeparator2, btnCaptureScreenshot, toolStripSeparator3, toolStripSeparator4, btnSave });
             toolBar.Location = new Point(0, 24);
             toolBar.Name = "toolBar";
             toolBar.Size = new Size(999, 25);
@@ -154,12 +158,27 @@
             toolStripSeparator3.Name = "toolStripSeparator3";
             toolStripSeparator3.Size = new Size(6, 25);
             // 
+            // toolStripSeparator4
+            // 
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(6, 25);
+            // 
+            // btnSave
+            // 
+            btnSave.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnSave.Image = (Image)resources.GetObject("btnSave.Image");
+            btnSave.ImageTransparentColor = Color.Magenta;
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(138, 22);
+            btnSave.Text = "Сохранить скриншоты";
+            btnSave.Click += btnSave_Click;
+            // 
             // videoDisplay
             // 
             videoDisplay.Dock = DockStyle.Fill;
             videoDisplay.Location = new Point(0, 0);
             videoDisplay.Name = "videoDisplay";
-            videoDisplay.Size = new Size(640, 515);
+            videoDisplay.Size = new Size(564, 515);
             videoDisplay.SizeMode = PictureBoxSizeMode.Zoom;
             videoDisplay.TabIndex = 3;
             videoDisplay.TabStop = false;
@@ -178,7 +197,7 @@
             // 
             splitContainer1.Panel2.Controls.Add(lstDetectedFace);
             splitContainer1.Size = new Size(999, 515);
-            splitContainer1.SplitterDistance = 640;
+            splitContainer1.SplitterDistance = 564;
             splitContainer1.TabIndex = 4;
             // 
             // lstDetectedFace
@@ -187,14 +206,14 @@
             lstDetectedFace.LargeImageList = imgLstDetect;
             lstDetectedFace.Location = new Point(0, 0);
             lstDetectedFace.Name = "lstDetectedFace";
-            lstDetectedFace.Size = new Size(355, 515);
+            lstDetectedFace.Size = new Size(431, 515);
             lstDetectedFace.TabIndex = 0;
             lstDetectedFace.UseCompatibleStateImageBehavior = false;
             // 
             // imgLstDetect
             // 
             imgLstDetect.ColorDepth = ColorDepth.Depth32Bit;
-            imgLstDetect.ImageSize = new Size(50, 50);
+            imgLstDetect.ImageSize = new Size(250, 250);
             imgLstDetect.TransparentColor = Color.Transparent;
             // 
             // MainForm
@@ -242,5 +261,8 @@
         private SplitContainer splitContainer1;
         private ImageList imgLstDetect;
         private ListView lstDetectedFace;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripButton btnSave;
+        private SaveFileDialog saveFileDialog1;
     }
 }
