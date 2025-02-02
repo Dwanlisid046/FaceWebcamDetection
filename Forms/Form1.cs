@@ -1,6 +1,7 @@
 using Emgu.CV;
 using Emgu.CV.Structure;
 using DirectShowLib;
+using Webcam.Forms;
 
 namespace Webcam
 {
@@ -159,7 +160,11 @@ namespace Webcam
         {
             Application.Exit();
         }
-
+        private void btnTranslateToGray_Click(object sender, EventArgs e)
+        {
+            var frmImgProcessing = new FrmImgProcessing();
+            frmImgProcessing.Show();
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
