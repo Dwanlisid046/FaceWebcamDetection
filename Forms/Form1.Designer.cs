@@ -33,6 +33,8 @@
             menuStrip1 = new MenuStrip();
             файлToolStripMenuItem = new ToolStripMenuItem();
             выходToolStripMenuItem = new ToolStripMenuItem();
+            обработкаИзображенийToolStripMenuItem = new ToolStripMenuItem();
+            btnTranslateToGray = new ToolStripMenuItem();
             contextMenuStrip1 = new ContextMenuStrip(components);
             toolBar = new ToolStrip();
             lblCamera = new ToolStripLabel();
@@ -62,7 +64,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem, обработкаИзображенийToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(999, 24);
@@ -81,6 +83,21 @@
             выходToolStripMenuItem.Name = "выходToolStripMenuItem";
             выходToolStripMenuItem.Size = new Size(109, 22);
             выходToolStripMenuItem.Text = "Выход";
+            выходToolStripMenuItem.Click += exitMenuItem_Click;
+            // 
+            // обработкаИзображенийToolStripMenuItem
+            // 
+            обработкаИзображенийToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { btnTranslateToGray });
+            обработкаИзображенийToolStripMenuItem.Name = "обработкаИзображенийToolStripMenuItem";
+            обработкаИзображенийToolStripMenuItem.Size = new Size(157, 20);
+            обработкаИзображенийToolStripMenuItem.Text = "Обработка изображений";
+            // 
+            // btnTranslateToGray
+            // 
+            btnTranslateToGray.Name = "btnTranslateToGray";
+            btnTranslateToGray.Size = new Size(195, 22);
+            btnTranslateToGray.Text = "Перевод в серый цвет";
+            btnTranslateToGray.Click += btnTranslateToGray_Click;
             // 
             // contextMenuStrip1
             // 
@@ -264,5 +281,7 @@
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripButton btnSave;
         private SaveFileDialog saveFileDialog1;
+        private ToolStripMenuItem обработкаИзображенийToolStripMenuItem;
+        private ToolStripMenuItem btnTranslateToGray;
     }
 }
